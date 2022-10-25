@@ -17,9 +17,11 @@ Run =borg create= with =--patterns-from=/path/to/borg-exclude.txt=
 borg create --list --exclude-if-present .nobackup --patterns-from=/Users/exampleuser/sysadmin/borg-exclude.txt abc123@abc123.rysnc.net:example/directory::'{hostname}-{utcnow} /
 #+end_example
 * Why exclude certain items?
-Although it might seem 
+Although it might seem like copying /all/ items from a machine would be the ideal case, these can create problems on recovery or unduly slow down the backup process. The wallclock time to perform a backup is strongly correlated with the number of files that need to be traversed, so omitting unnecessary directors can significantly speed up backups.
+
+Excluding these files leads to faster backups, less storage use/churn, and easier recoveries.
 * Roadmap
-I'm starting with the core items that should be excluded
+I'm starting with the core items that should be excluded in any situation, but there are many additional files which are reasonable to exclude for most situations, and even more which can be overlooked if the goal is speed/frequency rather than completeness. I plan to add these in as optional configurations later.
 * How to help
 - Create bug reports if you find something included that should be excluded (or the converse)
 - Include commentary about risk or failure

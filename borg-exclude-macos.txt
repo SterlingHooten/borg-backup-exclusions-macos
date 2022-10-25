@@ -1,4 +1,5 @@
-# These are exclusions for borg that are particular to macOS
+# These are exclusions for borg backup which are particular to macOS
+# Use: borg create --patterns-from=/path/to/borg-exclude.txt
 
 # N.B. --patterns-from uses the shell style of patterns by default NOT the fn
 # Shell style counts ** as any character (including path separators)
@@ -62,8 +63,6 @@
 ! **/Applications/Install macOS**
 
 # Unknown and Misc
-- **/vendor/
-- **/.idea/
 - **/.MobileBackups/
 - **/.MobileBackups.trash/
 - **/MobileBackups.trash/
