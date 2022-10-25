@@ -9,7 +9,8 @@
 
 The purpose of this repository is to collect an annotated list of exclusion rules tailored to the macOS environment that can be shared and critiqued among the community. Ideally there's a  universally agreed upon "core" set of exclusions which can be used in all situations, and then suggested exclusions are available as addenda.
 * Usage
-Clone this repo or copy the files to the machine which is going to run borg backup, then run =borg create= with =--patterns-from=/path/to/borg-exclude.txt= 
+Clone this repo or copy the files to the machine which is going to run borg backup, then run =borg create= with =--patterns-from=/path/to/borg-exclude.txt=
+#+caption: Example borg command using the exclusion list
 #+begin_example sh
 borg create --list --exclude-if-present .nobackup --patterns-from=/Users/exampleuser/sysadmin/borg-exclude.txt abc123@abc123.rysnc.net:example/directory::'{hostname}-{utcnow} /
 #+end_example
