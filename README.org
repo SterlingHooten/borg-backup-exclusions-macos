@@ -1,0 +1,15 @@
+#+TITLE: Borg Backup Exclusion Lists for macOS
+#+AUTHOR: Sterling Hooten
+#+DATE: 
+#+CREATED: [2022-10-25 Tue 22:34]
+#+MODIFIED: 
+#+FILETAGS:
+* Introduction
+=Borg backup= is an open source software project providing deduplication, encryption, and compression. Not all files which are present on a machine should be copied to the backup system (e.g. caches, metadata stores). Files or directories which should be ignored during backup are specified using "exclusion lists" or "patterns" which are then fed into =borg=. Unfortunately macOS has many peculiarities not present in standard *nix distributions which makes crafting a sensible list difficult, furthermore these can change with each OS update.
+
+The purpose of this repository is to collect an annotated list of exclusion rules tailored to the macOS environment that can be shared and critiqued among the community. Ideally there'sa  universally agreed upon "core" set of exclusions which can be used in all situations, and then suggested exclusions are available as addendums.
+* How to help
+- Create bug reports if you find something included that should be excluded (or the converse)
+- Add or correct annotations
+- Collect and post timing data for traversing certain file paths
+- Suggest changes to this README file
