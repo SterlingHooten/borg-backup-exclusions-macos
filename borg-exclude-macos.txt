@@ -28,8 +28,11 @@
 ! **/Caches/
 ! **/caches/
 ! **/iTunes/Album Artwork/
+! **/Library/Containers/
+! **/Library/Group Containers/
 ! **/Library/Metadata
 ! **/Library/Metadata/CoreSpotlight/index.spotlightV3/
+! **/Library/Safari/Favicon Cache/
 ! **/private/var/folders
 ! **/System/Library/Caches/
 ! **/tmp/
