@@ -13,27 +13,27 @@
 # N.B. Other directories will be ignored if a file '.nobackup' is present and '--exclude-if-present .nobackup' is used
 
 # Cache items that will be rebuilt by the machine
-! **/.DS_Store
 ! **/.build/
-! **/Cache/
-! **/Caches/
-! **/cache/
-! **/caches/
 ! **/.cache/
-! **/.caches/
 ! **/.Cache/
+! **/.caches/
 ! **/.Caches/
-! **/private/var/folders
-! **/Library/Metadata
+! **/.DocumentRevisions-V100/
+! **/.DS_Store
 ! **/.hotfiles.btree
 ! **/.Spotlight-V100/
-! **/Library/Metadata/CoreSpotlight/index.spotlightV3/
-! **/iTunes/Album Artwork/
-! **/System/Library/Caches/
-! **/.DocumentRevisions-V100/
 ! **/.TemporaryItems/
-! /var/tmp/
+! **/Cache/
+! **/cache/
+! **/Caches/
+! **/caches/
+! **/iTunes/Album Artwork/
+! **/Library/Metadata
+! **/Library/Metadata/CoreSpotlight/index.spotlightV3/
+! **/private/var/folders
+! **/System/Library/Caches/
 ! **/tmp/
+! /var/tmp/
 
 # Specific cache items
 ## These are thumbnails and resized images which will be rebuilt if missing
@@ -49,8 +49,8 @@
 ! **/.trashes/
 
 # Logs and Monitoring
-- **/node_modules/
 - **/Logs/
+- **/node_modules/
 
 # Backup items
 - **/.com.apple.backupd.mvlist.plist
@@ -63,19 +63,19 @@
 ! **/Applications/Install macOS**
 
 # Unknown and Misc
-- **/.MobileBackups/
+- **/.fseventsd/
 - **/.MobileBackups.trash/
-- **/MobileBackups.trash/
+- **/.MobileBackups/
+- **/CrashReporter/
 - **/DerivedData/
 - **/iTunes/iTunes Media/Downloads/
 - **/iTunes/iTunes Media/Podcasts/
 - **/iTunes/Previous iTunes Libraries/
-- **/CrashReporter/
+- **/MobileBackups.trash/
 - **/MobileSync/Backup/
-- **/.fseventsd/
 - /dev/
 - /proc/
+- /run/
 - /sys/
 - /tmp/
-- /run/
 - /var/backups/
