@@ -8,18 +8,56 @@
 =Borg backup= is an open source software project providing deduplication, encryption, and compression. Not all files which are present on a machine should be copied to the backup system (e.g. caches, metadata stores). Files or directories which should be ignored during backup are specified using "exclusion lists" or "patterns" which are then fed into =borg=. Unfortunately macOS has many peculiarities not present in standard *nix distributions which makes crafting a sensible list difficult, furthermore these can change with each OS update.
 
 The purpose of this repository is to collect an annotated list of exclusion rules tailored to the macOS environment that can be shared and critiqued among the community. Ideally there's a  universally agreed upon "core" set of exclusions which can be used in all situations for macOS, and then suggested exclusions available as addenda.
+
 * Installation
 Clone this repo or copy the exclusion files to the machine which is going to run borg backup.
 * Usage
-Run =borg create= with =--patterns-from=/path/to/borg-exclude.txt=
-#+caption: Example borg command using the exclusion list
+Run =borg create= with =--patterns-from=/path/to/borg-exclude.lst=. To combine multiple lists add them in as an additional argument.
+
+This will exclude any directory with a =.nobackup= file present, while following the core and programming exclusion lists.
+#+caption: Example borg command using multiple exclusion lists
 #+begin_example sh
-borg create --list --exclude-if-present .nobackup --patterns-from=/Users/exampleuser/sysadmin/borg-exclude.txt abc123@abc123.rysnc.net:example/directory::'{hostname}-{utcnow} /
+borg create --list --exclude-if-present .nobackup --patterns-from=/Users/exampleuser/sysadmin/borg-exclude-macos-core.lst
+--patterns-from=/Users/exampleuser/sysadmin/borg-exclude-macos-programming.lst abc123@abc123.rysnc.net:example/directory::'{hostname}-{utcnow} /
 #+end_example
+* Philosophy
+
 * Why exclude certain items?
-Although it might seem like copying /all/ items from a machine would be the ideal case, these can create problems on recovery or unduly slow down the backup process. The wallclock time to perform a backup is strongly correlated with the number of files that need to be traversed, so omitting unnecessary directors can significantly speed up backups.
+Although it might seem like copying /all/ items from a machine would be the ideal case, these can create problems on recovery or unduly slow down the backup process. The wallclock time to perform a backup is strongly correlated with the number of files that need to be traversed, so omitting unnecessary directories can significantly speed up backups.
 
 Excluding these files leads to faster backups, less storage use/churn, and easier recoveries.
+* What constitutes a "core" exclusion?
+These are items that would be present in /any/ macOS system, that would not make sense to /restore/ under /any circumstances/. This should be safe to use in
+* What is an "application" exclusion?
+These are items that pertain to applications which are not a part of the default macOS system but should not be backed up. These are things like special databases or caches that can be generated again, or may change too quickly for borg to copy.
+
+For example, adguard creates a database which borg c
+#+begin_example
+! **/com.adguard.mac.adguard/adguard.db
+#+end_example
+
+These are /not/ exclusions of the app data itself to save space (e.g. the =~/Applications/adguard.app= is untouched).
+* What is a "fast and loose" exclusion?
+*WARNING: Never use fast and loose in a standard backup*
+Borg isn't designed as a continuous backup system (which would make duplicates of files on modification), but it can be run frequently (every 5 minutes). Borg's speed seems to be O(n) with number of files traversed. Therefore, in order to reduce overhead and ensure completion, the number of files traversed must be reduced drastically (on my system 75,144 files take 67 seconds to backup). Additionally large files that would take longer to upload (especially over a slow connection) are targeted for exclusion[fn:1].
+
+The expectation is that this is run on a home directory (not the root dir), and excluded items from "fast and loose" will be included in a nightly backup, but aren't (hopefully) relevant for recovering work from the past few hours.
+
+The primary risk vector is that an excluded file changes more frequently than the full backup period (daily), and then isn't available to be recovered from. But this risk would be present under the standard backup scheme too.
+
+Directories which should never be included in the backup should contain a =.nobackup= file instead of being excluded through a pattern.
+
+*WARNING: Do not copy this blindly*
+This is included more as an example, you should profile your own frequent backups to see where they hang. Additionally certain directories contain random characters that are different on your system.
+
+
+* Why not exclude .git folders by default?
+/Most/ git repositories are hosted on an external server, and certainly public repos of large projects will be available elsewhere. If
+* Why include /Syndication.photoslibrary/database/Photos.sqlite?
+Apple recommends backing these files up before attempting to [[https://support.apple.com/guide/photos/repair-the-library-pht6be18f93/mac][Repair your library in Photos on Mac]].
+* What's peculiar about macOS?
+- More programs are built in than standard *nix operating systems. These require their own forms of exclusions
+- There are virtual folders which can lead to standard rules like =~/Library/example= being ignored because they're reparsed as =System/Volumes/Data/Users/yourname/Library/example=
 * Roadmap
 I'm starting with the core items that should be excluded in any situation, but there are many additional files which are reasonable to exclude for most situations, and even more which can be overlooked if the goal is speed/frequency rather than completeness. I plan to add these in as optional configurations later.
 * How to help
@@ -29,3 +67,7 @@ I'm starting with the core items that should be excluded in any situation, but t
 - Collect and post timing data for traversing certain file paths
 - Suggest changes to this README file
 - Link to this repository in stack exchange, blogs, and reddit posts
+
+* Footnotes
+
+[fn:1] A more effective way of excluding large files would be to search for files over a certain size (say 50mb), and then exclude these specifically for the frequent backups.

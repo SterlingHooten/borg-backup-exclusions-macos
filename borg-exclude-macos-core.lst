@@ -1,5 +1,5 @@
 # These are exclusions for borg backup which are particular to macOS
-# Use: borg create --patterns-from=/path/to/borg-exclude.txt
+# Use: borg create --patterns-from=/path/to/borg-exclude.lst
 
 # N.B. --patterns-from uses the shell style of patterns by default NOT the fn
 # Shell style counts ** as any character (including path separators)
@@ -15,13 +15,13 @@
 # Cache items that will be rebuilt by the machine
 ! **/.DS_Store
 ! **/.build/
-! **/Cache/
-! **/Caches/
 ! **/cache/
+! **/Cache/
 ! **/caches/
+! **/Caches/
 ! **/.cache/
-! **/.caches/
 ! **/.Cache/
+! **/.caches/
 ! **/.Caches/
 ! **/private/var/folders
 ! **/Library/Metadata
@@ -43,10 +43,10 @@
 
 # Things deleted by user (these should have been picked up in an earlier backup anyway)
 # N.B. Omitting the trashes will leave you open to creating something, trashing it before a backup is made, and then having a disaster
-! **/.Trash/
 ! **/.trash/
-! **/.Trashes/
+! **/.Trash/
 ! **/.trashes/
+! **/.Trashes/
 
 # Logs and Monitoring
 - **/node_modules/
@@ -76,6 +76,5 @@
 - /dev/
 - /proc/
 - /sys/
-- /tmp/
 - /run/
 - /var/backups/

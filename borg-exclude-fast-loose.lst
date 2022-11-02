@@ -1,0 +1,65 @@
+# These are exclusions for borg backup which will skip a LARGE number of files
+# Use: borg create --patterns-from=/path/to/borg-exclude-fast-loose.lst
+
+# N.B. --patterns-from uses the shell style of patterns by default NOT the fn
+# Shell style counts ** as any character (including path separators)
+
+# A directory exclusion pattern can end either with or without a slash (‘/’).
+# If it ends with a slash, such as some/path/, the directory will be included but not its content.
+# If it does not end with a slash, such as some/path, both the directory and content will be excluded.
+# A minus sign will exclude, but still recurse into the directory to find inclusions (slow)
+# A bang/exclamation point will _not_ recurse into a directory, and thus no inclusion rules will kick in (dangerous)
+
+############################# WARNING ########################################
+# These exclusions prioritize speed over exhaustiveness.		     #
+# The intended use is to make fast (under 20 seconds) regular (every	     #
+# 5 minutes) backups while working.					     #
+# The expectation is that a full backup is done regularly (typically daily). #
+##############################################################################
+
+! **/Users/*/Pictures/Photos Library.photoslibrary/
+# ! **Users/*/Pictures/Photos Library.photoslibrary/database/Photos.sqlite
+# ! **Users/*/Pictures/Photos Library.photoslibrary/private/com.apple.mediaanalysisd/MediaAnalysis/mediaanalysis.db
+
+! **Users/*/Library/Keychains/*/keychain-2.db
+! **Users/*/Library/Keychains/*/keychain-2.db-wal
+! **Users/*/Library/PersonalizationPortrait/PPSQLDatabase.db
+! **Users/*/Library/PersonalizationPortrait/PPSQLDatabase.db-wal
+! **Users/*/Library/Assistant/SiriAnalytics.db
+! **Users/*/Library/Assistant/SiriAnalytics.db-wal
+# ! **Users/*/Library/Safari
+! **Users/*/Library/Safari/History.db
+! **Users/*/Library/Safari/History.db-wal
+! **Users/*/Library/Safari/History.db-shm
+! **/Users/*/Library/Containers/com.apple.Safari
+! **/Users/*/Library/Internet Plug-Ins
+
+
+! **/Users/*/Library/Calendars
+! **/Users/*/Library/Mobile Documents
+! Users/*/Library/Colors 
+
+! **Users/*/Library/Group Containers/*.com.adguard.mac/Library/Application Support/com.adguard.mac.adguard/AdguardCore/sfbr.db
+! **/WhatsApp/IndexedDB  
+! **/Users/*/opt/anaconda3
+! **/Users/*/Library/Developer/XCPGDevices
+! **/Users/*/Library/Group Containers/*.com.evernote.Evernote
+# The photo library should definitely be updated each day, but maybe not every minute
+! **/Users/*/.vscode/
+! **/Users/*/Library/Containers
+! **/Users/*/Library/Messages/Attachments
+! **/Users/*/perl15
+! **Users/*/perl15
+
+# Users/sterlinghooten/code/emacs/doom-emacs
+! **Users/*/code/noto-fonts
+
+# ltximage directories
+# These are really more like a cache, so maybe exclude totally, but definitely to the minute ones
+
+# These are files that shouldn't change frequently enough (i.e., I shouldn't even bother going down them because they won't change)
+! **Users/*/Library/Application Support
+
+
+# Unless you're generating epub files these are almost certainly downloads
+! **.epub
