@@ -27,11 +27,11 @@ Although it might seem like copying /all/ items from a machine would be the idea
 
 Excluding these files leads to faster backups, less storage use/churn, and easier recoveries.
 * What constitutes a "core" exclusion?
-These are items that would be present in /any/ macOS system, that would not make sense to /restore/ under /any circumstances/. This should be safe to use in
+These are items that would be present in /any/ macOS system, that would not make sense to /restore/ under /any circumstances/. This should be safe to use in any backup scenario.
 * What is an "application" exclusion?
 These are items that pertain to applications which are not a part of the default macOS system but should not be backed up. These are things like special databases or caches that can be generated again, or may change too quickly for borg to copy.
 
-For example, adguard creates a database which borg c
+For example, adguard creates a database which borg complains about.
 #+begin_example
 ! **/com.adguard.mac.adguard/adguard.db
 #+end_example
@@ -39,7 +39,8 @@ For example, adguard creates a database which borg c
 These are /not/ exclusions of the app data itself to save space (e.g. the =~/Applications/adguard.app= is untouched).
 * What is a "fast and loose" exclusion?
 *WARNING: Never use fast and loose in a standard backup*
-Borg isn't designed as a continuous backup system (which would make duplicates of files on modification), but it can be run frequently (every 5 minutes). Borg's speed seems to be O(n) with number of files traversed. Therefore, in order to reduce overhead and ensure completion, the number of files traversed must be reduced drastically (on my system 75,144 files take 67 seconds to backup). Additionally large files that would take longer to upload (especially over a slow connection) are targeted for exclusion[fn:1].
+
+Borg isn't designed as a continuous backup system (which would make duplicates of files on modification), but it can be run frequently (every 5 minutes). Borg's speed seems to be $O(n)$ with number of files traversed. Therefore, in order to reduce overhead and ensure completion, the number of files traversed must be reduced drastically (on my system 75,144 files take 67 seconds to backup). Additionally large files that would take longer to upload (especially over a slow connection) are targeted for exclusion[fn:1].
 
 The expectation is that this is run on a home directory (not the root dir), and excluded items from "fast and loose" will be included in a nightly backup, but aren't (hopefully) relevant for recovering work from the past few hours.
 
