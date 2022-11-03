@@ -12,6 +12,9 @@
 
 ! **/com.adguard.mac.adguard/adguard.db
 
+# Microsoft App Center Telemetry
+! **/Application Support/**/com.microsoft.appcenter/
+
 # Spotify
 
 # Messages
