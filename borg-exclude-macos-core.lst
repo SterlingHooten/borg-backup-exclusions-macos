@@ -36,6 +36,9 @@
 ## These seem to be related to macOS ML caching
 ! **/Library/Trial
 
+## Calendar
+! **/Library/Calendars/Calendar Cache/
+
 # Metadata
 ! **/.DS_Store
 ! **/Library/Metadata
