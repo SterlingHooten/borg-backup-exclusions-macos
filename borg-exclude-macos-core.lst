@@ -42,6 +42,9 @@
 ## Calendar
 ! **/Library/Calendars/Calendar Cache/
 
+## Notes
+! **/Library/Group Containers/group.com.apple.notes/Accounts/*/Previews/
+
 # Metadata
 ! **/.DS_Store
 ! **/Library/Metadata
