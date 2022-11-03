@@ -87,6 +87,7 @@
 - **/iTunes/iTunes Media/Downloads/
 - **/iTunes/iTunes Media/Podcasts/
 - **/iTunes/Previous iTunes Libraries/
+- **/Library/HTTPStorages/
 - **/MobileBackups.trash/
 - **/MobileSync/Backup/
 - /dev/
