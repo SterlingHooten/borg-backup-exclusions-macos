@@ -67,6 +67,11 @@
 ## These are large and don't need to be restored
 ! **/Applications/Install macOS**
 
+# Siri
+! **/Library/Assistant/SiriAnalytics.db
+! **/Library/Assistant/SiriSyncItems.db
+! **/Library/Assistant/SiriVocabulary/sv.db
+
 # Unknown and Misc
 - **/.fseventsd/
 - **/.MobileBackups.trash/
