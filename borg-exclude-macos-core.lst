@@ -36,6 +36,9 @@
 ## These seem to be related to macOS ML caching
 ! **/Library/Trial
 
+## Bluetooth
+! **/Library/com.apple.bluetooth.services.cloud/CachedRecords/
+
 ## Calendar
 ! **/Library/Calendars/Calendar Cache/
 
