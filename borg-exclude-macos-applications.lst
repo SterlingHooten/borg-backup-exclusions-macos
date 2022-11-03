@@ -11,3 +11,16 @@
 # A bang/exclamation point will _not_ recurse into a directory, and thus no inclusion rules will kick in (dangerous)
 
 ! **/com.adguard.mac.adguard/adguard.db
+
+# Spotify
+
+# Messages
+
+# Dropbox
+
+# Google drive
+! **/.tmp.drivedownload
+! **/.tmp.driveupload
+
+# Up for discussion
+# ! **/.dropbox*

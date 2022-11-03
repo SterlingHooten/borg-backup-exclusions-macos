@@ -17,49 +17,82 @@
 # The expectation is that a full backup is done regularly (typically daily). #
 ##############################################################################
 
-! **/Users/*/Pictures/Photos Library.photoslibrary/
+! **Users/*/Pictures/Photos Library.photoslibrary/
 # ! **Users/*/Pictures/Photos Library.photoslibrary/database/Photos.sqlite
 # ! **Users/*/Pictures/Photos Library.photoslibrary/private/com.apple.mediaanalysisd/MediaAnalysis/mediaanalysis.db
+! **Users/*/Library/Photos/Libraries
 
+! **Users/*/Library
+
+! **Users/*/Library/Assistant/SiriAnalytics.db
+! **Users/*/Library/Assistant/SiriAnalytics.db-wal
 ! **Users/*/Library/Keychains/*/keychain-2.db
 ! **Users/*/Library/Keychains/*/keychain-2.db-wal
 ! **Users/*/Library/PersonalizationPortrait/PPSQLDatabase.db
 ! **Users/*/Library/PersonalizationPortrait/PPSQLDatabase.db-wal
-! **Users/*/Library/Assistant/SiriAnalytics.db
-! **Users/*/Library/Assistant/SiriAnalytics.db-wal
-# ! **Users/*/Library/Safari
-! **Users/*/Library/Safari/History.db
-! **Users/*/Library/Safari/History.db-wal
-! **Users/*/Library/Safari/History.db-shm
-! **/Users/*/Library/Containers/com.apple.Safari
-! **/Users/*/Library/Internet Plug-Ins
+! **Users/*/Library/Safari
+
+# ! **Users/*/Library/Safari/History.db
+# ! **Users/*/Library/Safari/History.db-shm
+# ! **Users/*/Library/Safari/History.db-wal
+
+! **Users/*/Library/Containers/com.apple.Safari
+! **Users/*/Library/Internet Plug-Ins
 
 
-! **/Users/*/Library/Calendars
-! **/Users/*/Library/Mobile Documents
+! **Users/*/Library/Calendars
+! **Users/*/Library/Mobile Documents
 ! Users/*/Library/Colors 
 
-! **Users/*/Library/Group Containers/*.com.adguard.mac/Library/Application Support/com.adguard.mac.adguard/AdguardCore/sfbr.db
 ! **/WhatsApp/IndexedDB  
-! **/Users/*/opt/anaconda3
-! **/Users/*/Library/Developer/XCPGDevices
-! **/Users/*/Library/Group Containers/*.com.evernote.Evernote
+! **Users/*/Library/Developer
+! **Users/*/Library/Developer
+! **Users/*/Library/Fonts
+! **Users/*/Library/Group Containers
+! **Users/*/Library/Group Containers/*.com.adguard.mac/Library/Application Support/com.adguard.mac.adguard/AdguardCore/sfbr.db
+! **Users/*/Library/Preferences
+! **Users/*/Library/Saved Application State
+! **Users/*/Library/WebKit/Databases
+! **Users/*/opt/anaconda3
+
+! **Users/*/Library/Group Containers/*.com.evernote.Evernote
 # The photo library should definitely be updated each day, but maybe not every minute
-! **/Users/*/.vscode/
-! **/Users/*/Library/Containers
-! **/Users/*/Library/Messages/Attachments
-! **/Users/*/perl15
-! **Users/*/perl15
+! **Users/*/.vscode/
+! **Users/*/Library/Containers
+! **Users/*/Library/Messages/Attachments
+! **Users/*/perl5/
 
 # Users/sterlinghooten/code/emacs/doom-emacs
 ! **Users/*/code/noto-fonts
 
-# ltximage directories
-# These are really more like a cache, so maybe exclude totally, but definitely to the minute ones
+# Emacs org mode puts latex previews into this directory
+! **/ltximg
+! **/xenops/cache
 
 # These are files that shouldn't change frequently enough (i.e., I shouldn't even bother going down them because they won't change)
 ! **Users/*/Library/Application Support
 
+! **Users/*/.config/alfred/Alfred.alfredpreferences
+! **/Evernote Legacy.app
 
 # Unless you're generating epub files these are almost certainly downloads
-! **.epub
+! **/*.dmg
+! **/*.epub
+
+! Users/*/styles/Microsoft
+
+! **Users/*/Zotero
+
+# VERY specific to my config
+! **/*.trace
+! **Users/*/.emacs.legacy/elpa
+! **Users/*/code/emacs/doom-emacs/
+! **Users/sterlinghooten/.BAK.emacs.d
+! **Users/sterlinghooten/.emacs.legacy/anaconda-mode
+! **Users/sterlinghooten/.emacs.legacy/lisp/pylookup
+! **Users/sterlinghooten/.emacs.legacy/quelpa
+! **Users/sterlinghooten/code/emacs/prelude
+! **Users/sterlinghooten/code/emacs/purcell
+! **Users/sterlinghooten/code/emacs/scimax
+! **Users/sterlinghooten/code/toolkit
+! **Users/sterlinghooten/temp/web-clipping

@@ -49,9 +49,8 @@ The primary risk vector is that an excluded file changes more frequently than th
 Directories which should never be included in the backup should contain a =.nobackup= file instead of being excluded through a pattern.
 
 *WARNING: Do not copy this blindly*
+
 This is included more as an example, you should profile your own frequent backups to see where they hang. Additionally certain directories contain random characters that are different on your system.
-
-
 * Why not exclude .git folders by default?
 /Most/ git repositories are hosted on an external server, and certainly public repos of large projects will be available elsewhere. If
 * Why include /Syndication.photoslibrary/database/Photos.sqlite?

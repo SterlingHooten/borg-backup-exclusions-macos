@@ -1,5 +1,5 @@
 # These are exclusions for borg backup which are particular to macOS
-# Use: borg create --patterns-from=/path/to/borg-exclude.lst
+# Use: borg create --patterns-from="/path/to/borg-exclude.lst"
 
 # N.B. --patterns-from uses the shell style of patterns by default NOT the fn
 # Shell style counts ** as any character (including path separators)
@@ -13,33 +13,36 @@
 # N.B. Other directories will be ignored if a file '.nobackup' is present and '--exclude-if-present .nobackup' is used
 
 # Cache items that will be rebuilt by the machine
-! **/.DS_Store
 ! **/.build/
-! **/cache/
-! **/Cache/
-! **/caches/
-! **/Caches/
 ! **/.cache/
 ! **/.Cache/
 ! **/.caches/
 ! **/.Caches/
-! **/private/var/folders
-! **/Library/Metadata
 ! **/.hotfiles.btree
 ! **/.Spotlight-V100/
-! **/Library/Metadata/CoreSpotlight/index.spotlightV3/
-! **/iTunes/Album Artwork/
+! **/cache/
+! **/Cache/
+! **/caches/
+! **/Caches/
+! **/private/var/folders
 ! **/System/Library/Caches/
-! **/.DocumentRevisions-V100/
-! **/.TemporaryItems/
-! /var/tmp/
-! **/tmp/
 
 # Specific cache items
 ## These are thumbnails and resized images which will be rebuilt if missing
+! **/iTunes/Album Artwork/
+! **/Library/Safari/Favicon Cache/
 ! **/Users/*/Pictures/Photos Library.photoslibrary/resources
+
 ## These seem to be related to macOS ML caching
 ! **/Library/Trial
+
+# Metadata
+! **/.DS_Store
+! **/Library/Metadata
+! **/Library/Metadata/CoreSpotlight/index.spotlightV3/
+
+# Versioning
+! **/.DocumentRevisions-V100/
 
 # Things deleted by user (these should have been picked up in an earlier backup anyway)
 # N.B. Omitting the trashes will leave you open to creating something, trashing it before a backup is made, and then having a disaster
@@ -49,32 +52,64 @@
 ! **/.Trashes/
 
 # Logs and Monitoring
-- **/node_modules/
 - **/Logs/
 
 # Backup items
 - **/.com.apple.backupd.mvlist.plist
 - **/Backups.backupdb
 
+# Temporary items
+! **/.TemporaryItems
+! **/tmp/
+! /var/tmp/
+
 # macOS installation files
 ## These are large and don't need to be restored
-## We use ** here because macOS will use System/Volumes/Data/Applications/ as well
-## You could just exclude both, as the deduplication would take care of it, but faster to skip
 ! **/Applications/Install macOS**
 
 # Unknown and Misc
-- **/.MobileBackups/
+- **/.fseventsd/
 - **/.MobileBackups.trash/
-- **/MobileBackups.trash/
+- **/.MobileBackups/
+- **/CrashReporter/
 - **/DerivedData/
 - **/iTunes/iTunes Media/Downloads/
 - **/iTunes/iTunes Media/Podcasts/
 - **/iTunes/Previous iTunes Libraries/
-- **/CrashReporter/
+- **/MobileBackups.trash/
 - **/MobileSync/Backup/
-- **/.fseventsd/
 - /dev/
 - /proc/
-- /sys/
 - /run/
+- /sys/
 - /var/backups/
+
+##################################
+# Exclusions up for discussion	 #
+# ! **/*~			 #
+# ! **/.*.swp			 #
+# ! **/._sync_*			 #
+# ! **/.vol			 #
+# ! **/.VolumeIcon.icns		 #
+# ! **/Library/**/Containers/	 #
+# ! **/Library/**/CrashReporter/ #
+# ! **/Library/**/DerivedData/	 #
+# ! **/Library/**/Developer/	 #
+# ! **/Library/**/Logs/		 #
+# ! **/Library/**/Metadata/	 #
+# ! **/Library/**/MobileSync/	 #
+# ! /bin/			 #
+# ! /cores/			 #
+# ! /dev/			 #
+# ! /etc/			 #
+# ! /home/			 #
+# ! /macOS Install Data/	 #
+# ! /private/			 #
+# ! /sbin/			 #
+# ! /System/			 #
+# ! /tmp/			 #
+# ! /Users/Shared/		 #
+# ! /var/			 #
+# ! /Volumes/			 #
+# ! ~/Library/Containers	 #
+##################################
