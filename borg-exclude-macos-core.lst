@@ -36,6 +36,15 @@
 ## These seem to be related to macOS ML caching
 ! **/Library/Trial
 
+## Bluetooth
+! **/Library/com.apple.bluetooth.services.cloud/CachedRecords/
+
+## Calendar
+! **/Library/Calendars/Calendar Cache/
+
+## Notes
+! **/Library/Group Containers/group.com.apple.notes/Accounts/*/Previews/
+
 # Metadata
 ! **/.DS_Store
 ! **/Library/Metadata
@@ -67,6 +76,11 @@
 ## These are large and don't need to be restored
 ! **/Applications/Install macOS**
 
+# Siri
+! **/Library/Assistant/SiriAnalytics.db
+! **/Library/Assistant/SiriSyncItems.db
+! **/Library/Assistant/SiriVocabulary/sv.db
+
 # Unknown and Misc
 - **/.fseventsd/
 - **/.MobileBackups.trash/
@@ -76,6 +90,7 @@
 - **/iTunes/iTunes Media/Downloads/
 - **/iTunes/iTunes Media/Podcasts/
 - **/iTunes/Previous iTunes Libraries/
+- **/Library/HTTPStorages/
 - **/MobileBackups.trash/
 - **/MobileSync/Backup/
 - /dev/
