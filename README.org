@@ -52,7 +52,7 @@ Directories which should never be included in the backup should contain a =.noba
 
 This is included more as an example, you should profile your own frequent backups to see where they hang. Additionally certain directories contain random characters that are different on your system.
 * Why not exclude .git folders by default?
-/Most/ git repositories are hosted on an external server, and certainly public repos of large projects will be available elsewhere. If
+/Most/ git repositories are hosted on an external server, and public repos of large projects will typically be available elsewhere. Thus, there's usually no need to back them up.
 * Why include /Syndication.photoslibrary/database/Photos.sqlite?
 Apple recommends backing these files up before attempting to [[https://support.apple.com/guide/photos/repair-the-library-pht6be18f93/mac][Repair your library in Photos on Mac]].
 * What's peculiar about macOS?
