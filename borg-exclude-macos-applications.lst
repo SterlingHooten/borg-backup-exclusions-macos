@@ -10,20 +10,32 @@
 # A minus sign will exclude, but still recurse into the directory to find inclusions (slow)
 # A bang/exclamation point will _not_ recurse into a directory, and thus no inclusion rules will kick in (dangerous)
 
+# Adguard
 ! **/com.adguard.mac.adguard/adguard.db
 
-# Microsoft App Center Telemetry
-! **/Application Support/**/com.microsoft.appcenter/
+# Anki
+! **/Anki2/*/media.trash
 
-# Spotify
-
-# Messages
+# Discord
+! **/discord/Code Cache
 
 # Dropbox
+
+# Flume
+! **/Flume/ImageCache
 
 # Google drive
 ! **/.tmp.drivedownload
 ! **/.tmp.driveupload
+
+# Microsoft App Center Telemetry
+! **/Application Support/**/com.microsoft.appcenter/
+
+# Microsoft office
+! **/Microsoft/FontPreviewCache
+
+# Spotify
+! **/Spotify/PersistentCache
 
 # Up for discussion
 # ! **/.dropbox*
