@@ -28,6 +28,11 @@
 ! **/System/Library/Caches/
 
 # Specific cache items
+## Volume-specific cache files
+! /private/var/db/dyld/dyld_*
+! /System/Library/Caches/com.apple.bootstamps/
+! /System/Library/Caches/com.apple.corestorage/
+
 ## These are thumbnails and resized images which will be rebuilt if missing
 ! **/iTunes/Album Artwork/
 ! **/Library/Safari/Favicon Cache/
@@ -50,8 +55,37 @@
 ! **/Library/Metadata
 ! **/Library/Metadata/CoreSpotlight/index.spotlightV3/
 
+# Volume specific preferences
+! **/.metadata_never_index
+! **/.metadata_never_index_unless_rootfs
+! /.com.apple.timemachine.donotpresent
+! **/.VolumeIcon.icns
+! /System/Library/CoreServices/.disk_label*
+! /TheVolumeSettingsFolder
+! /private/var/db/dslocal/nodes/Default/secureaccesstoken.plist
+
 # Versioning
 ! **/.DocumentRevisions-V100/
+
+# Dynamically-generated devices
+! /Volumes/
+! /dev/
+! /automount
+! /Network
+! /.vol/
+! /net
+
+# Large datastores that are (or should be) erased on startup
+! /private/var/vm/
+! /private/tmp/
+! /cores
+! /macOS Install Data
+
+# Time Machine backups
+! /Backups.backupdb
+! /.MobileBackups
+! /.MobileBackups.trash
+! /private/var/db/com.apple.backupd.backupVerification
 
 # Things deleted by user (these should have been picked up in an earlier backup anyway)
 # N.B. Omitting the trashes will leave you open to creating something, trashing it before a backup is made, and then having a disaster
@@ -81,10 +115,21 @@
 ! **/Library/Assistant/SiriSyncItems.db
 ! **/Library/Assistant/SiriVocabulary/sv.db
 
+# Apple-proprietary data stores
+! **/.DocumentRevisions-V100*
+! **/.Spotlight-V100
+! **/Library/Metadata/CoreSpotlight
+! /.fseventsd
+! /.hotfiles.btree
+! /private/var/db/systemstats
+! /private/var/db/ConfigurationProfiles/Store
+! /private/var/folders/*/*/C
+! /private/var/folders/*/*/T
+! /Users/*/Library/Caches
+! /Users/*/Library/Containers/*/Data/Library/Caches
+
 # Unknown and Misc
 - **/.fseventsd/
-- **/.MobileBackups.trash/
-- **/.MobileBackups/
 - **/CrashReporter/
 - **/DerivedData/
 - **/iTunes/iTunes Media/Downloads/
@@ -105,7 +150,6 @@
 # ! **/.*.swp			 #
 # ! **/._sync_*			 #
 # ! **/.vol			 #
-# ! **/.VolumeIcon.icns		 #
 # ! **/Library/**/Containers/	 #
 # ! **/Library/**/CrashReporter/ #
 # ! **/Library/**/DerivedData/	 #
