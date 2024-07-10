@@ -26,6 +26,7 @@
 ! **/Caches/
 ! **/private/var/folders
 ! **/System/Library/Caches/
+! **/System/Volumes/VM
 
 # Specific cache items
 ## Volume-specific cache files
