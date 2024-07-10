@@ -16,9 +16,12 @@
 # Anki
 ! **/Anki2/*/media.trash
 
+<<<<<<< HEAD
 # Arq Backup
 ! **/Library/Application Support/ArqAgent/cache.noindex
 
+=======
+>>>>>>> origin/main
 # Discord
 ! **/discord/Code Cache
 
@@ -27,11 +30,14 @@
 # Flume
 ! **/Flume/ImageCache
 
+<<<<<<< HEAD
 # Google Chrome
 ! **/Google/Chrome/Default/Service Worker/CacheStorage
 ! **/Google/Chrome/Default/Service Worker/ScriptCache
 ! **/Google/Chrome/ShaderCache
 
+=======
+>>>>>>> origin/main
 # Google drive
 ! **/.tmp.drivedownload
 ! **/.tmp.driveupload
